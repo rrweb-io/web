@@ -1,0 +1,34 @@
+<svelte:head>
+	<title>rrweb.io | rrweb replayer</title>
+</svelte:head>
+
+<div class="clearfix" id="replayer" ref:replayer></div>
+
+<script>
+  import * as sapper from '../../__sapper__/client.js';
+
+  export default {
+    oncreate() {
+      const rrwebPlayer = require('rrweb-player').default
+      const { events } = this.store.get()
+      try {
+        new rrwebPlayer({
+          target: this.refs.replayer,
+          data: {
+            events
+          }
+        })
+      } catch (error) {
+        sapper.goto('/')
+      }
+    }
+  }
+</script>
+
+<style>
+  #replayer {
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+</style>
