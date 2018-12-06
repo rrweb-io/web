@@ -1,0 +1,32 @@
+<div class="Toast">
+  <slot />
+</div>
+
+<script>
+  export default {
+    oncreate() {
+      this.timer = setTimeout(() => {
+        this.destroy()
+      }, 5 * 1000);
+    },
+    ondestroy() {
+      if (this.timer) {
+        clearTimeout(this.timer)
+      }
+    }
+  }
+</script>
+
+<style>
+  .Toast {
+    position: fixed;
+    right: 2em;
+    bottom: 2em;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 0 16px #666;
+    display: inline-block;
+    padding: .75em 1em;
+    z-index: 999;
+  }
+</style>
