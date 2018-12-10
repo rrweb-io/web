@@ -44,7 +44,7 @@
 		<div class="container">
 			<div class="hero-inner" ref:hero>
 				<div class="hero-copy">
-					<h1 class="hero-title mt-0">Record and replay the web</h1>
+					<h1 class="hero-title mt-0" ref:heroTitle>Record and replay the web</h1>
 					<p class="hero-paragraph">
 						rrweb is an open source web session replay library, which provides easy to use API to record user interactions
 						and replay it remotely.
@@ -74,72 +74,79 @@
 			<div class="features-inner section-inner">
 				<div class="features-header text-center">
 					<div class="container-sm">
-						<h2 class="section-title mt-0">Meet April</h2>
-						<p class="section-paragraph">Lorem ipsum is common placeholder text used to demonstrate the graphic elements of a
-							document or visual presentation.</p>
+						<h2 class="section-title mt-0">Meet rrweb</h2>
+						<p class="section-paragraph">Here is a list of several interesting use cases for rrweb.</p>
 					</div>
 				</div>
 				<div class="features-wrap">
 					<div class="feature text-center is-revealing">
 						<div class="feature-inner">
 							<div class="feature-icon" style="background:#FFD2DA;">
-								<svg width="88" height="88" xmlns="http://www.w3.org/2000/svg">
+								<svg viewBox="0 0 1024 1024" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
 									<g fill="none" fill-rule="nonzero">
-										<path d="M43 47v7a13 13 0 0 0 13-13v-7c-7.18 0-13 5.82-13 13z" fill="#FF6381" />
-										<path d="M32 41v4a9 9 0 0 0 9 9v-4a9 9 0 0 0-9-9z" fill="#FF97AA" />
+										<path fill="#FF6381" d="M364.9 419.6c-3.8-3.7-5.9-8.7-5.9-14 0-5.3 2.1-10.3 5.9-14l115.2-113.7c-57.3-48.3-139.6-53.3-202.3-12.1-62.7 41.1-91 118.5-69.5 190.4 21.5 71.8 87.6 121.1 162.6 121.1 40.4-0.1 79.5-14.6 110.3-40.9L365.4 420.6l-0.5-1z m0 0"></path>
+										<path fill="#FF6381" d="M411.8 407.1l99.8 99.8c44.3-58.6 44.3-139.5 0-198l-99.8 98.2z m0 0"></path>
+										<path fill="#FF6381" d="M826.9 112.8H196.3c-22.1-0.1-43.3 8.5-59.1 24-15.7 15.5-24.6 36.7-24.8 58.8v443c0.1 22.1 9 43.2 24.8 58.8 15.7 15.5 37 24.2 59.1 24h630.6c22.1 0.1 43.3-8.5 59.1-24 15.7-15.5 24.6-36.7 24.8-58.8v-443c-0.1-22.1-9-43.2-24.8-58.8-15.8-15.5-37-24.2-59.1-24z m-456 503.8c-116.6 0.6-211.7-93.4-212.5-210 2.2-85.6 55.4-161.7 135.1-193.1 79.7-31.4 170.5-12.2 230.5 48.9 38.4 38.9 60 91.5 59.9 146.2-1.9 116-96.9 208.9-213 208z m464.9-73.3c-0.3 10.8-9.1 19.5-20 19.5h-174c-10.8 0-19.7-8.6-20-19.5 0.3-10.8 9.1-19.5 20-19.5h174.1c10.8 0 19.7 8.7 19.9 19.5z m0-127.7c-0.3 10.8-9.1 19.5-20 19.5h-174c-10.8 0-19.7-8.6-20-19.5v-3.5c0.3-10.8 9.1-19.5 20-19.5h174.1c10.8 0 19.7 8.6 20 19.5v3.5z m0-127.7c-0.3 10.8-9.1 19.5-20 19.5h-174c-10.8 0-19.7-8.6-20-19.5 0.3-10.8 9.1-19.5 20-19.5h174.1c10.8 0 19.7 8.7 19.9 19.5z m0 0"></path>
+										<path fill="#FF6381" d="M347.5 721.4h-79.8L238.2 886c0.2 13.3 10.7 24.2 23.9 24.9 11.2 0.8 21.3-6.6 23.9-17.5l61.5-172z m330.7 0H758L787.5 886c-0.1 6.8-3 13.3-8 18-5 4.7-11.6 7.2-18.5 6.9-11.2 0.8-21.3-6.6-23.9-17.5l-58.9-172z m0 0"></path>
 									</g>
 								</svg>
 							</div>
-							<h4 class="feature-title h3-mobile mb-8">Powerful</h4>
-							<p class="text-sm">A pseudo-Latin text used in web design, layout, and printing in place of English to emphasise
-								design elements.</p>
+							<h4 class="feature-title h3-mobile mb-8">User analysis</h4>
+							<p class="text-sm">
+								With the pixel-perfect replay of what users do on your site, you will found it was easy to understand your users and optimize user experience.
+							</p>
 						</div>
 					</div>
 					<div class="feature text-center is-revealing">
 						<div class="feature-inner">
 							<div class="feature-icon" style="background:#FFD8CD;">
-								<svg width="88" height="88" xmlns="http://www.w3.org/2000/svg">
+								<svg viewBox="0 0 1024 1024" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
 									<g fill="none" fill-rule="nonzero">
-										<path d="M54 56h-9a2 2 0 0 1-2-2V43a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2zm-9-13v10h9V43h-9z" fill="#FCAC96" />
-										<path d="M41 50h-7V34h14v5h2v-5a2 2 0 0 0-2-2H34a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h7v-4z" fill="#FC8464" />
+										<path fill="#FC8464" d="M916.422378 713.465454l-200.653973-200.639646c12.921287-36.074613 19.461237-73.782424 19.461237-112.426559 0-184.603415-150.179394-334.799182-334.799182-334.799182-45.959751 0-90.675162 9.263991-132.8671 27.525913l-19.960611 8.640798c-0.031722 0.031722 0.124843 0.047072 0.062422 0.077771-1.898233 0.826831-3.674693 2.025123-5.231141 3.581572-6.602372 6.615675-6.602372 17.374716 0.032746 24.007787 0.093121 0.094144-0.094144 0.140193-0.032746 0.233314l187.452299 187.453323L317.133336 429.856142 133.447826 246.156306c-0.280386 0.031722-0.560772 0.047072-0.934279-0.326435-7.78429-7.78429-20.395516-7.78429-28.181853 0-2.116197 2.133593-3.674693 4.609994-4.63967 7.256264-0.093121 0.248663-0.217964 0.124843-0.341784 0.140193l-6.197142 14.323217c-18.24555 42.145889-27.52489 86.860277-27.52489 132.851751 0 184.588065 150.180418 334.799182 334.799182 334.799182 38.611389 0 76.3192-6.538927 112.438838-19.461237l200.654996 200.626343c27.092032 27.088962 63.119573 42.035372 101.450577 42.035372 0 0 0 0 0.032746 0 38.299281 0 74.358545-14.94641 101.449553-42.035372C972.347085 860.439854 972.347085 769.422907 916.422378 713.465454zM871.365182 871.275643c-15.07023 15.071254-35.093263 23.352871-56.360635 23.352871l-0.032746 0c-21.298072 0-41.320081-8.28264-56.359612-23.352871l-230.764757-230.735082-19.896142 8.594749c-34.158984 14.789844-70.342068 22.292726-107.521852 22.292726-149.432381 0-271.027763-121.562637-271.027763-271.02674 0-20.769023 2.335185-41.212634 6.974855-61.141522l168.582533 168.614256c7.068999 5.637394 16.782222 5.714142 23.976064 0.35918l177.239703-177.23868c0.062422-0.062422-0.063445-0.141216 0-0.202615 7.223518-7.224542 7.441483-18.497283 1.24434-26.328645L339.272565 136.330992c19.960611-4.623297 40.386826-6.958482 61.155848-6.958482 149.432381 0 271.028786 121.581056 271.028786 271.027763 0 37.226856-7.505951 73.392544-22.294772 107.491153l-8.594749 19.895119 230.765781 230.765781C902.410246 789.631158 902.410246 840.197834 871.365182 871.275643z"></path>
 									</g>
 								</svg>
 							</div>
-							<h4 class="feature-title h3-mobile mb-8">Powerful</h4>
-							<p class="text-sm">A pseudo-Latin text used in web design, layout, and printing in place of English to emphasise
-								design elements.</p>
+							<h4 class="feature-title h3-mobile mb-8">Reproduce bugs</h4>
+							<p class="text-sm">
+								You can replay problem and debug it in your browser remotely with consistent behavior. This let you understand the cause of every bug.
+							</p>
 						</div>
 					</div>
 					<div class="feature text-center is-revealing">
 						<div class="feature-inner">
 							<div class="feature-icon" style="background:#C6FDF3;">
-								<svg width="88" height="88" xmlns="http://www.w3.org/2000/svg">
+								<svg viewBox="0 0 1024 1024" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
 									<g fill="none" fill-rule="nonzero">
-										<circle fill="#1ADAB7" cx="38" cy="50" r="5" />
-										<path d="M53 42h2v-8a1 1 0 0 0-1-1h-8v2h5.586l-8.293 8.293a1 1 0 1 0 1.414 1.414L53 36.414V42z" fill="#1ADAB7" />
-										<path fill="#83F0DD" d="M34 41.414l3-3 3 3L41.414 40l-3-3 3-3L40 32.586l-3 3-3-3L32.586 34l3 3-3 3zM55.414 48L54 46.586l-3 3-3-3L46.586 48l3 3-3 3L48 55.414l3-3 3 3L55.414 54l-3-3z" />
+										<path fill="#1ADAB7" d="M739.738 478.729 593.621 333.188c0 0-31.868-30.281-67.864 0.164-24.386 24.387-65.37 65.371-86.293 86.295l-21.19-20.356c-16.101-15.29-42.207-15.29-58.309 0l-76.484 73.475 0.114 0.162c-5.871 3.601-9.8 10.058-9.8 17.451 0 11.311 9.17 20.48 20.48 20.48 4.861 0 9.319-1.701 12.831-4.53l0.388 0.552c0.399-0.642 0.769-1.298 1.171-1.937 0.853-0.843 1.623-1.767 2.318-2.748l63.558-61.377c8.051-7.645 21.103-7.645 29.153 0l63.838 61.647c0.622 0.903 1.32 1.747 2.075 2.538 0.387 0.621 0.747 1.255 1.134 1.877l0.408-0.415c3.574 3.042 8.198 4.888 13.259 4.888 11.31 0 20.48-9.169 20.48-20.48 0-6.932-3.453-13.048-8.724-16.754l-27.389-26.311 71.089-70.671c0 0 17.644-16.884 38.301-1.338 20.027 20.28 129.706 131.081 129.706 131.081l0.755-0.667c3.611 3.189 8.341 5.14 13.537 5.14 11.311 0 20.48-9.169 20.48-20.48 0-4.288-1.323-8.265-3.576-11.555L739.738 478.729z"></path>
+										<path fill="#1ADAB7" d="M389.12 322.56m-30.72 0a30.72 30.72 0 1 0 61.44 0 30.72 30.72 0 1 0-61.44 0Z"></path>
+										<path fill="#1ADAB7" d="M829.44 229.469c0-27.763-22.471-50.269-50.19-50.269L244.75 179.2c-27.72 0-50.19 22.507-50.19 50.269L194.56 588.8l634.88 0L829.44 229.469zM788.48 547.84 235.52 547.84 235.52 245.459c0-13.973 11.273-25.299 25.18-25.299l502.6 0c13.907 0 25.18 11.327 25.18 25.299L788.48 547.84z"></path>
+										<path fill="#1ADAB7" d="M834.56 619.52 189.44 619.52c-8.483 0-15.36 6.877-15.36 15.36l0 10.24c0 8.483 6.877 15.36 15.36 15.36l291.84 0 0 168.96c0 8.483 6.877 15.36 15.36 15.36l30.72 0c8.483 0 15.36-6.877 15.36-15.36L542.72 660.48l291.84 0c8.483 0 15.36-6.877 15.36-15.36l0-10.24C849.92 626.397 843.043 619.52 834.56 619.52z"></path>
 									</g>
 								</svg>
 							</div>
-							<h4 class="feature-title h3-mobile mb-8">Powerful</h4>
-							<p class="text-sm">A pseudo-Latin text used in web design, layout, and printing in place of English to emphasise
-								design elements.</p>
+							<h4 class="feature-title h3-mobile mb-8">Demonstrate web</h4>
+							<p class="text-sm">
+								Instead of recording videos to show you web, rrweb provide a more lightweight and pixel-perfect way.
+							</p>
 						</div>
 					</div>
 					<div class="feature text-center is-revealing">
 						<div class="feature-inner">
 							<div class="feature-icon" style="background:#E0E1FE;">
-								<svg width="88" height="88" xmlns="http://www.w3.org/2000/svg">
+								<svg viewBox="0 0 1024 1024" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
 									<g fill="none" fill-rule="nonzero">
-										<path d="M41 42h-7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1zM41 55h-7a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1z"
-										 fill="#4950F6" />
-										<path fill="#8D92FA" d="M45 34h10v2H45zM45 39h10v2H45zM45 47h10v2H45zM45 52h10v2H45z" />
+										<path fill="#8D92FA" d="M710.4 710.4c-6.4 0-12.8 0-19.2-6.4L524.8 595.2c-19.2-12.8-19.2-32-12.8-44.8 12.8-12.8 32-19.2 44.8-6.4l166.4 115.2c12.8 12.8 19.2 32 6.4 44.8 0 6.4-6.4 6.4-19.2 6.4z"></path>
+										<path fill="#8D92FA" d="M537.6 601.6c-19.2 0-32-12.8-32-32v-224c0-19.2 12.8-32 32-32s32 12.8 32 32v224c0 19.2-12.8 32-32 32z"></path>
+										<path fill="#8D92FA" d="M550.4 966.4c-115.2 0-224-44.8-300.8-128-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0 70.4 70.4 160 108.8 256 108.8 198.4 0 364.8-160 364.8-364.8s-160-364.8-364.8-364.8c-160 0-307.2 108.8-352 262.4 0 19.2-19.2 32-32 25.6-19.2-6.4-25.6-25.6-25.6-38.4 51.2-179.2 224-307.2 409.6-307.2 236.8 0 428.8 192 428.8 428.8 0 230.4-192 422.4-428.8 422.4z"></path>
+										<path fill="#8D92FA" d="M160 492.8c-19.2 0-32-6.4-32-25.6l-25.6-166.4c0-19.2 6.4-32 25.6-38.4 19.2 0 32 6.4 38.4 25.6L192 460.8c0 12.8-12.8 32-32 32z"></path>
+										<path fill="#8D92FA" d="M160 492.8c-12.8 0-25.6-6.4-32-12.8-6.4-19.2 0-38.4 19.2-44.8l160-83.2c12.8-6.4 32 0 44.8 12.8 6.4 12.8 0 32-12.8 44.8l-166.4 83.2H160z"></path>
 									</g>
 								</svg>
 							</div>
-							<h4 class="feature-title h3-mobile mb-8">Powerful</h4>
-							<p class="text-sm">A pseudo-Latin text used in web design, layout, and printing in place of English to emphasise
-								design elements.</p>
+							<h4 class="feature-title h3-mobile mb-8">Real-time collaboration</h4>
+							<p class="text-sm">
+									With the power of rrweb, it should not be hard to share your interactions on the site with others in real-time.
+							</p>
 						</div>
 					</div>
 				</div>
@@ -352,7 +359,8 @@
 			const rrwebPlayer = require('rrweb-player').default
 			const maxWidth = this.refs.hero
 				.getBoundingClientRect().width
-			const width = maxWidth / 2
+			const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+			const width = viewportWidth > 641 ? maxWidth / 2 : maxWidth
 			const height = width * 9 / 16
 			new rrwebPlayer({
 				target: this.refs.replayer,
