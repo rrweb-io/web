@@ -2,42 +2,7 @@
 	<title>rrweb.io | Open source web session replay library</title>
 </svelte:head>
 
-<header class="site-header">
-	<div class="header-shape header-shape-1">
-		<svg width="337" height="222" viewBox="0 0 337 222" xmlns="http://www.w3.org/2000/svg">
-			<defs>
-				<linearGradient x1="50%" y1="55.434%" x2="50%" y2="0%" id="header-shape-1">
-					<stop stop-color="#E0E1FE" stop-opacity="0" offset="0%" />
-					<stop stop-color="#E0E1FE" offset="100%" />
-				</linearGradient>
-			</defs>
-			<path d="M1103.21 0H1440v400h-400c145.927-118.557 166.997-251.89 63.21-400z" transform="translate(-1103)" fill="url(#header-shape-1)"
-			 fill-rule="evenodd" />
-		</svg>
-	</div>
-	<div class="header-shape header-shape-2">
-		<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
-			<defs>
-				<linearGradient x1="93.05%" y1="19.767%" x2="15.034%" y2="85.765%" id="header-shape-2">
-					<stop stop-color="#FF3058" offset="0%" />
-					<stop stop-color="#FF6381" offset="100%" />
-				</linearGradient>
-			</defs>
-			<circle class="anime-element fadeup-animation" cx="64" cy="64" r="64" fill="url(#header-shape-2)" fill-rule="evenodd" />
-		</svg>
-	</div>
-	<div class="container">
-		<div class="site-header-inner">
-			<div class="brand header-brand">
-				<h1 class="m-0">
-					<a href="/">
-						<img class="logo" src="favicon.png" alt="logo">
-					</a>
-				</h1>
-			</div>
-		</div>
-	</div>
-</header>
+<Nav />
 
 <main>
 	<section class="hero">
@@ -154,19 +119,19 @@
 		</div>
 	</section>
 
-	<section class="testimonials section">
-		<div class="testimonials-shape testimonials-shape-1">
+	<section class="demos section">
+		<div class="demos-shape demos-shape-1">
 			<svg width="280" height="280" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
 				<defs>
-					<linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="testimonials-shape-1">
+					<linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="demos-shape-1">
 						<stop stop-color="#261FB6" offset="0%" />
 						<stop stop-color="#4950F6" offset="100%" />
 					</linearGradient>
 				</defs>
-				<circle cx="140" cy="685" r="140" transform="translate(0 -545)" fill="url(#testimonials-shape-1)" fill-rule="evenodd" />
+				<circle cx="140" cy="685" r="140" transform="translate(0 -545)" fill="url(#demos-shape-1)" fill-rule="evenodd" />
 			</svg>
 		</div>
-		<div class="testimonials-shape testimonials-shape-2">
+		<div class="demos-shape demos-shape-2">
 			<svg width="125" height="107" viewBox="0 0 125 107" xmlns="http://www.w3.org/2000/svg">
 				<g fill="none" fill-rule="evenodd">
 					<circle fill="#C6FDF3" cx="48" cy="59" r="48" />
@@ -177,68 +142,50 @@
 				</g>
 			</svg>
 		</div>
-		<div class="testimonials-shape testimonials-shape-3">
+		<div class="demos-shape demos-shape-3">
 			<svg width="48" height="48" viewBox="0 0 48 48" mlns="http://www.w3.org/2000/svg">
 				<defs>
-					<linearGradient x1="93.05%" y1="19.767%" x2="15.034%" y2="85.765%" id="testimonials-shape-3">
+					<linearGradient x1="93.05%" y1="19.767%" x2="15.034%" y2="85.765%" id="demos-shape-3">
 						<stop stop-color="#FF3058" offset="0%" />
 						<stop stop-color="#FF6381" offset="100%" />
 					</linearGradient>
 				</defs>
-				<circle cx="24" cy="434" r="24" transform="translate(0 -410)" fill="url(#testimonials-shape-3)" fill-rule="evenodd" />
+				<circle cx="24" cy="434" r="24" transform="translate(0 -410)" fill="url(#demos-shape-3)" fill-rule="evenodd" />
 			</svg>
 		</div>
 		<div class="container">
-			<div class="testimonials-inner section-inner">
-				<h2 class="section-title mt-0 text-center">Testimonials</h2>
-				<div class="testimonials-wrap">
-					<div class="testimonial text-xs is-revealing">
-						<div class="testimonial-inner">
-							<div class="testimonial-main">
-								<div class="testimonial-header">
-									<img class="mb-16" src="dist/images/testimonial-01.png" alt="Testimonial">
-								</div>
-								<div class="testimonial-body">
-									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+			<div class="demos-inner section-inner">
+				<div class="demos-header text-center">
+					<h2 class="section-title mt-0">Try rrweb</h2>
+					<p class="section-paragraph">Interact with following demos, click the 'replay' button whenever you want to stop recording.</p>
+				</div>
+				<div class="demos-wrap">
+					<div class="demo text-xs is-revealing">
+						<a class="demo-inner" rel='prefetch' href="demo/checkout-form">
+							<div class="demo-main">
+								<div class="demo-body">
+									<img class="mb-16" src="checkout.png" alt="checkout">
+									<p class="mb-0">Bootstrap checkout form</p>
 								</div>
 							</div>
-							<div class="testimonial-footer">
-								<div class="testimonial-link">
-									<a href="/">@martajones</a>
+						</a>
+					</div>
+					<div class="demo text-xs is-revealing">
+						<div class="demo-inner">
+							<div class="demo-main">
+								<div class="demo-body">
+									<img class="mb-16" src="chat.png" alt="checkout">
+									<p class="mb-0">Conversational Form</p>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="testimonial text-xs is-revealing">
-						<div class="testimonial-inner">
-							<div class="testimonial-main">
-								<div class="testimonial-header">
-									<img class="mb-16" src="dist/images/testimonial-02.png" alt="Testimonial">
-								</div>
-								<div class="testimonial-body">
-									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-								</div>
-							</div>
-							<div class="testimonial-footer">
-								<div class="testimonial-link">
-									<a href="/">@michealpahm</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="testimonial text-xs is-revealing">
-						<div class="testimonial-inner">
-							<div class="testimonial-main">
-								<div class="testimonial-header">
-									<img class="mb-16" src="dist/images/testimonial-03.png" alt="Testimonial">
-								</div>
-								<div class="testimonial-body">
-									<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-								</div>
-							</div>
-							<div class="testimonial-footer">
-								<div class="testimonial-link">
-									<a href="/">@markbrown</a>
+					<div class="demo text-xs is-revealing">
+						<div class="demo-inner">
+							<div class="demo-main">
+								<div class="demo-body">
+									<img class="mb-16" src="tetris.png" alt="checkout">
+									<p class="mb-0">Tetris game</p>
 								</div>
 							</div>
 						</div>
@@ -249,14 +196,13 @@
 	</section>
 </main>
 
-<p>Try the following demos</p>
-
-<a rel='prefetch' href="demo/checkout-form">checkout form</a>
-<a href="b">TBD 1</a>
-<a href="c">TBD 2</a>
-
 <script>
+	import Nav from '../components/Nav'
+
 	export default {
+		components: {
+			Nav
+		},
 		methods: {
 			initAnimation() {
 
@@ -270,7 +216,7 @@
 					/* global ScrollReveal */
 					const sr = window.sr = ScrollReveal()
 
-					sr.reveal('.feature, .testimonial', {
+					sr.reveal('.feature, .demo', {
 						duration: 600,
 						distance: '50px',
 						easing: 'cubic-bezier(0.5, -0.01, 0, 1.005)',
@@ -373,10 +319,3 @@
 		}
 	}
 </script>
-
-<style>
-	.logo {
-		width: 32px;
-		height: 32px;
-	}
-</style>

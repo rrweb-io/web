@@ -2,12 +2,17 @@
 	<title>rrweb.io | rrweb replayer</title>
 </svelte:head>
 
+<Nav />
 <div class="clearfix" id="replayer" ref:replayer></div>
 
 <script>
   import * as sapper from '../../__sapper__/client.js';
+	import Nav from '../components/Nav'
 
   export default {
+    components: {
+      Nav
+    },
     oncreate() {
       const rrwebPlayer = require('rrweb-player').default
       const { events } = this.store.get()

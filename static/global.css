@@ -992,14 +992,14 @@ button, input, select, textarea, label {
     line-height: 24px;
     letter-spacing: -0.1px;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.4);
+    color: rgba(73, 80, 246, 0.7);
     text-transform: uppercase;
     text-decoration: none;
     line-height: 16px;
-    padding: 8px 24px;
+    padding: 8px 12px;
 }
 .header-links a:not(.button):hover, .header-links a:not(.button):active {
-    color: #FFF;
+    color: rgba(73, 80, 246, 0.9);
 }
 @media (min-width: 641px) {
     .header-shape-1 {
@@ -1199,63 +1199,63 @@ button, input, select, textarea, label {
         top: 80px;
    }
 }
-/*-------------------------------------------------------------- # Testimonials --------------------------------------------------------------*/
-.testimonials {
+/*-------------------------------------------------------------- # demos --------------------------------------------------------------*/
+.demos {
     position: relative;
 }
-.testimonials .section-inner {
+.demos .section-inner {
     padding-top: 0;
     padding-bottom: 108px;
 }
-.testimonials .section-title {
-    margin-bottom: 72px;
-}
-.testimonials-shape {
+.demos-shape {
     position: absolute;
 }
-.testimonials-shape-1 {
+.demos-shape-1 {
     bottom: 52px;
     left: calc(50% - 80px);
 }
-.testimonials-shape-2 {
+.demos-shape-2 {
     top: 84px;
     left: calc(50% + 30px);
 }
-.testimonials-shape-3 {
+.demos-shape-3 {
     display: none;
 }
-.testimonials-wrap {
+.demos-wrap {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-right: -16px;
     margin-left: -16px;
 }
-.testimonials-wrap:first-child {
+.demos-wrap:first-child {
     margin-top: -16px;
 }
-.testimonials-wrap:last-child {
+.demos-wrap:last-child {
     margin-bottom: -16px;
 }
-.testimonial {
+.demo {
     position: relative;
-    padding: 44px 16px 16px;
+    padding: 16px;
     width: 388px;
     max-width: 388px;
     flex-grow: 1;
 }
-.testimonial-inner {
+.demo-inner {
     position: relative;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
     background: #FFFFFF;
-    padding: 52px 24px 24px;
+    padding: 24px;
 }
-.testimonial-inner > * {
+.demo-inner > * {
     width: 100%;
 }
-.testimonial-inner::before {
+.demo-inner p {
+    text-decoration: none;
+}
+.demo-inner::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1265,68 +1265,65 @@ button, input, select, textarea, label {
     box-shadow: 0 24px 48px rgba(17, 16, 62, 0.12);
     mix-blend-mode: multiply;
 }
-.testimonial-main {
+.demo-main {
     position: relative;
 }
-.testimonial-header {
+.demo-header {
     position: absolute;
     top: -80px;
 }
-.testimonial-header img {
+.demo-header img {
     width: 56px;
     height: auto;
     border-radius: 50%;
     box-shadow: 0 16px 24px rgba(17, 16, 62, 0.12);
 }
-.testimonial-footer {
+.demo-footer {
     align-self: flex-end;
 }
-.testimonial-footer {
+.demo-footer {
     font-weight: 500;
     margin-bottom: 12px;
 }
 @media (min-width: 641px) {
-    .testimonials .section-inner {
+    .demos .section-inner {
         padding-bottom: 166px;
        /* 126+40px second column offset */
    }
-    .testimonials .section-title {
-        margin-bottom: 126px;
-   }
-    .testimonials-wrap {
+    .demos-wrap {
         margin-right: -24px;
         margin-left: -24px;
    }
-    .testimonials-wrap:first-child {
+    .demos-wrap:first-child {
         margin-top: -24px;
    }
-    .testimonials-wrap:last-child {
+    .demos-wrap:last-child {
         margin-bottom: -24px;
    }
-    .testimonial {
-        padding: 52px 24px 24px;
+    .demo {
+        padding: 24px;
    }
-    .testimonials-shape-1 {
+    .demos-shape-1 {
         bottom: auto;
         top: 170px;
         left: calc(50% - 305px);
    }
-    .testimonials-shape-1 svg {
+    .demos-shape-1 svg {
         width: 400px;
         height: 400px;
    }
-    .testimonials-shape-2 {
+    .demos-shape-2 {
         top: 480px;
         left: calc(50% + 190px);
    }
-    .testimonials-shape-3 {
+    .demos-shape-3 {
         display: block;
         top: 570px;
         left: calc(50% - 320px);
    }
 }
 @media (min-width: 1025px) {
-    .testimonial:nth-child(odd) {
+    .demo:nth-child(odd) {
         top: 40px;
    }
 }

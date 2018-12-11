@@ -1,12 +1,26 @@
 <div class="Recorder">
-  <a href="/">&lt</a>
-  <a href="/replay">replay</a>
+  <a class="button" href="/">
+    &lt back
+  </a>
+  <a class="button" href="/replay">
+    replay
+  </a>
 </div>
 
 <style>
   .Recorder {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 5px;
+    left: 5px;
+    display: flex;
+    box-shadow: 0 24px 48px rgba(17, 16, 62, 0.12);
+    background: white;
+    border: 2px solid #4950F6;
+  }
+  .button:hover {
+    background: #EEF1FA;
+  }
+  .button:first-child {
+    border-right: 2px solid #4950F6;
   }
 </style>
