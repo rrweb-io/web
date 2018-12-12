@@ -1469,3 +1469,7 @@ main {
     display: table;
     clear: both;
 }
+
+.tetris-demo p {
+    margin-bottom: 0;
+}

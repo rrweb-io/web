@@ -1,0 +1,43 @@
+<!-- https://github.com/chvin/react-tetris -->
+<svelte:head>
+  <title>rrweb.io | Tetris game demo</title>
+  <meta name="format-detection" content="telephone=no" />
+  <link rel="stylesheet" href="demo/tetris-loader.css">
+  <link rel="stylesheet" href="demo/tetris-1.0.1.css">
+</svelte:head>
+
+<div id="root" class="tetris-demo">
+  <div class="load">
+    <div class="loader">加载中...</div>
+  </div>
+</div>
+
+<Recorder />
+
+<script>
+  import Recorder from '../../components/Recorder'
+
+  export default {
+    components: {
+      Recorder
+    },
+    oncreate() {
+      const script = document.createElement('script')
+      script.src = 'demo/tetris-1.0.1.js'
+      document.body.appendChild(script)
+			const rrweb = require('rrweb')
+			this.store.set({ events: [] })
+			this.handler = rrweb.record({
+				emit: (event) => {
+					const { events } = this.store.get()
+					this.store.set({ events: events.concat(event) })
+				}
+			})
+    },
+		ondestroy() {
+			if (this.handler) {
+				this.handler()
+			}
+		}
+  }
+</script>
