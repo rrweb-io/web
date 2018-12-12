@@ -1473,3 +1473,9 @@ main {
 .tetris-demo p {
     margin-bottom: 0;
 }
+
+cf-chat-response.robot text>p.show,
+.cf-button {
+    color: black;
+    font-weight: bold;
+}

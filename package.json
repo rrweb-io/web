@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "compression": "^1.7.1",
+    "conversational-form": "^0.9.90",
     "polka": "^0.4.0",
     "rrweb": "^0.6.4",
     "rrweb-player": "file:../ui",
