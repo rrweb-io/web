@@ -12,15 +12,15 @@
     "compression": "^1.7.1",
     "conversational-form": "^0.9.90",
     "polka": "^0.4.0",
-    "rrweb": "^0.6.4",
-    "rrweb-player": "^0.3.1",
+    "rrweb": "^0.6.8",
+    "rrweb-player": "^0.3.3",
     "sirv": "^0.2.0"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
     "sapper": "^0.22.1",
-    "svelte": "^2.0.0",
+    "svelte": "^2.16.0",
     "svelte-loader": "^2.9.0",
-    "webpack": "^4.7.0"
+    "webpack": "^4.28.1"
   }
 }
