@@ -17,10 +17,14 @@
       const rrwebPlayer = require('rrweb-player').default
       const { events } = this.store.get()
       try {
+        const width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+        const height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
         new rrwebPlayer({
           target: this.refs.replayer,
           data: {
-            events
+            events,
+            width: 0.9 * width,
+            height: height - 200
           }
         })
       } catch (error) {
