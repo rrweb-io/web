@@ -305,27 +305,27 @@
 				}
 			}
 		},
-		preload() {
-			return this.fetch('events.json').then(r => r.json()).then(events => ({ events }))
-		},
 		oncreate() {
 			this.initAnimation()
 			if (!isMobile()) {
-				const { events } = this.get()
-				const rrwebPlayer = require('rrweb-player').default
-				const maxWidth = this.refs.hero
-					.getBoundingClientRect().width
-				const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-				const width = viewportWidth > 641 ? maxWidth / 2 : maxWidth
-				const height = width * 9 / 16
-				new rrwebPlayer({
-					target: this.refs.replayer,
-					data: {
-						events,
-						width,
-						height
-					}
-				})
+				fetch('/events.json')
+					.then(r => r.json())
+					.then(events => {
+						const rrwebPlayer = require('rrweb-player').default
+						const maxWidth = this.refs.hero
+							.getBoundingClientRect().width
+						const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
+						const width = viewportWidth > 641 ? maxWidth / 2 : maxWidth
+						const height = width * 9 / 16
+						new rrwebPlayer({
+							target: this.refs.replayer,
+							data: {
+								events,
+								width,
+								height
+							}
+						})
+					})
 			}
 		}
 	}
