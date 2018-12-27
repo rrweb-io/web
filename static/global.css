@@ -446,7 +446,7 @@ small {
 b, strong {
     font-weight: 700;
 }
-button, input, select, textarea, label {
+button, input, select, textarea {
     font-size: 18px;
     line-height: 27px;
 }
