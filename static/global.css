@@ -1094,6 +1094,15 @@ button, input, select, textarea {
         min-width: 620px;
    }
 }
+.hero-copy > .button {
+    display: block;
+    margin-top: 10px;
+}
+@media (min-width: 641px) {
+    .hero-copy > .button {
+        display: inline-flex;
+    }
+}
 /*-------------------------------------------------------------- # Features --------------------------------------------------------------*/
 .features {
     position: relative;
@@ -1198,6 +1207,17 @@ button, input, select, textarea {
     .feature:nth-child(even) {
         top: 80px;
    }
+}
+/*--- # companys ---*/
+.logo-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.logo {
+    width: 25%;
+    height: 60px;
+    display: flex;
+    align-items: center;
 }
 /*-------------------------------------------------------------- # demos --------------------------------------------------------------*/
 .demos {
