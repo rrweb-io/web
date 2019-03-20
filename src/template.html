@@ -1,40 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-	<meta charset='utf-8'>
-	<meta name='viewport' content='width=device-width'>
-	<meta name='theme-color' content='#aa1e1e'>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#aa1e1e" />
 
-	%sapper.base%
+    %sapper.base%
 
-	<link rel='stylesheet' href='global.css'>
-	<link rel='manifest' href='manifest.json'>
-	<link rel='icon' type='image/png' href='favicon.png'>
+    <link rel="stylesheet" href="global.css" />
+    <link rel="manifest" href="manifest.json" />
+    <link rel="icon" type="image/png" href="favicon.png" />
 
-	<!-- Sapper generates a <style> tag containing critical CSS
+    <!-- Sapper generates a <style> tag containing critical CSS
 	     for the current page. CSS for the rest of the app is
 	     lazily loaded when it precaches secondary pages -->
-	%sapper.styles%
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/rrweb-player@0.3.7/dist/style.css">
-	<script src="https://cdn.jsdelivr.net/npm/animejs@2.2.0/anime.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    %sapper.styles%
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/rrweb-player@0.3.7/dist/style.css"
+    />
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?7147a1a490256f2c4b9dc46512a06d84";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@2.2.0/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
-	<!-- This contains the contents of the <svelte:head> component, if
+    <!-- This contains the contents of the <svelte:head> component, if
 	     the current page has one -->
-	%sapper.head%
-</head>
-<body class="is-boxed has-animations">
-	<!-- The application will be rendered inside this element,
+    %sapper.head%
+  </head>
+  <body class="is-boxed has-animations">
+    <!-- The application will be rendered inside this element,
 	     because `app/client.js` references it -->
-	<div id='sapper'>%sapper.html%</div>
+    <div id="sapper">%sapper.html%</div>
 
-	<script src="demo/jquery.slim.min.js"></script>
-	<script src="demo/popper.min.js"></script>
-	<script src="demo/holder.min.js"></script>
-	<script src="demo/bootstrap.min.js"></script>
-	<!-- Sapper creates a <script> tag containing `app/client.js`
+    <script src="demo/jquery.slim.min.js"></script>
+    <script src="demo/popper.min.js"></script>
+    <script src="demo/holder.min.js"></script>
+    <script src="demo/bootstrap.min.js"></script>
+    <!-- Sapper creates a <script> tag containing `app/client.js`
 	     and anything else it needs to hydrate the app and
 	     initialise the router -->
-	%sapper.scripts%
-</body>
+    %sapper.scripts%
+  </body>
 </html>
