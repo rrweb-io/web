@@ -19,15 +19,34 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/rrweb-player@0.3.7/dist/style.css"
     />
-    <script>
-      var _hmt = _hmt || [];
-      (function() {
-        var hm = document.createElement("script");
-        hm.src = "https://hm.baidu.com/hm.js?7147a1a490256f2c4b9dc46512a06d84";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
+    <!-- GrowingIO Analytics code version 2.1 -->
+    <!-- Copyright 2015-2018 GrowingIO, Inc. More info available at http://www.growingio.com -->
+
+    <script type="text/javascript">
+      !(function(e, t, n, g, i) {
+        (e[i] =
+          e[i] ||
+          function() {
+            (e[i].q = e[i].q || []).push(arguments);
+          }),
+          (n = t.createElement("script")),
+          (tag = t.getElementsByTagName("script")[0]),
+          (n.async = 1),
+          (n.src =
+            ("https:" == document.location.protocol ? "https://" : "http://") +
+            g),
+          tag.parentNode.insertBefore(n, tag);
+      })(window, document, "script", "assets.growingio.com/2.1/gio.js", "gio");
+      gio("init", "a1285f8584e4d577", {});
+
+      //custom page code begin here
+
+      //custom page code end here
+
+      gio("send");
     </script>
+
+    <!-- End GrowingIO Analytics code version: 2.1 -->
     <script src="https://cdn.jsdelivr.net/npm/animejs@2.2.0/anime.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
 
