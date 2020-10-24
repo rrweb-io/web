@@ -6,15 +6,15 @@
   export default {
     oncreate() {
       this.timer = setTimeout(() => {
-        this.destroy()
+        this.destroy();
       }, 5 * 1000);
     },
     ondestroy() {
       if (this.timer) {
-        clearTimeout(this.timer)
+        clearTimeout(this.timer);
       }
-    }
-  }
+    },
+  };
 </script>
 
 <style>
@@ -25,9 +25,9 @@
     background: white;
     border-radius: 5px;
     box-shadow: 0 24px 48px rgba(17, 16, 62, 0.12);
-    color: #4950F6;
+    color: #4950f6;
     display: inline-block;
-    padding: .75em 1em;
+    padding: 0.75em 1em;
     z-index: 999;
   }
 </style>

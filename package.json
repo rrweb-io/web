@@ -12,8 +12,8 @@
     "compression": "^1.7.1",
     "conversational-form": "^0.9.90",
     "polka": "^0.4.0",
-    "rrweb": "^0.7.2",
-    "rrweb-player": "^0.3.7",
+    "rrweb": "^0.9.8",
+    "rrweb-player": "^0.6.2",
     "sirv": "^0.2.0"
   },
   "devDependencies": {
