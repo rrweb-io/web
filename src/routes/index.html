@@ -1,352 +1,517 @@
 <svelte:head>
-	<title>rrweb.io | Open source web session replay library</title>
+  <title>rrweb.io | Open source web session replay library</title>
 </svelte:head>
 
-<Nav />
+<nav />
 
 <main>
-	<section class="hero">
-		<div class="container">
-			<div class="hero-inner" ref:hero>
-				<div class="hero-copy">
-					<h1 class="hero-title mt-0" ref:heroTitle>Record and replay the web</h1>
-					<p class="hero-paragraph">
-						rrweb is an open source web session replay library, which provides easy-to-use APIs to record user's interactions
-						and replay it remotely.
-					</p>
-					<a class="button button-primary" href="https://join.slack.com/t/rrweb/shared_invite/zt-siwoc6hx-uWay3s2wyG8t5GpZVb8rWg" target="_blank">Join Community</a>
-					<a class="button button-primary" href="#demos">Try rrweb</a>
-				</div>
-				<div class="hero-illustration">
-					<div class="hero-shape hero-shape-1">
-						<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
-							<circle class="anime-element fadeup-animation" cx="20" cy="20" r="20" fill="#FFD8CD" fill-rule="evenodd" />
-						</svg>
-					</div>
-					<div class="hero-shape hero-shape-2">
-						<svg width="88" height="88" xmlns="http://www.w3.org/2000/svg" style="overflow:visible">
-							<circle class="anime-element fadeup-animation" cx="44" cy="44" r="44" fill="#FFD2DA" fill-rule="evenodd" />
-						</svg>
-					</div>
-					<div class="hero-main-shape">
-						<div class="clearfix" id="replayer" ref:replayer></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner" ref:hero>
+        <div class="hero-copy">
+          <h1 class="hero-title mt-0" ref:heroTitle>
+            Record and replay the web
+          </h1>
+          <p class="hero-paragraph">
+            rrweb is an open source web session replay library, which provides
+            easy-to-use APIs to record user's interactions and replay it
+            remotely.
+          </p>
+          <a
+            class="button button-primary"
+            href="https://join.slack.com/t/rrweb/shared_invite/zt-siwoc6hx-uWay3s2wyG8t5GpZVb8rWg"
+            target="_blank"
+            >Join Community</a
+          >
+          <a class="button button-primary" href="#demos">Try rrweb</a>
+        </div>
+        <div class="hero-illustration">
+          <div class="hero-shape hero-shape-1">
+            <svg
+              width="40"
+              height="40"
+              xmlns="http://www.w3.org/2000/svg"
+              style="overflow: visible"
+            >
+              <circle
+                class="anime-element fadeup-animation"
+                cx="20"
+                cy="20"
+                r="20"
+                fill="#FFD8CD"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <div class="hero-shape hero-shape-2">
+            <svg
+              width="88"
+              height="88"
+              xmlns="http://www.w3.org/2000/svg"
+              style="overflow: visible"
+            >
+              <circle
+                class="anime-element fadeup-animation"
+                cx="44"
+                cy="44"
+                r="44"
+                fill="#FFD2DA"
+                fill-rule="evenodd"
+              />
+            </svg>
+          </div>
+          <div class="hero-main-shape">
+            <div class="clearfix" id="replayer" ref:replayer></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<section class="features section">
-		<div class="container">
-			<div class="features-inner section-inner">
-				<div class="features-header text-center">
-					<div class="container-sm">
-						<h2 class="section-title mt-0">Meet rrweb</h2>
-						<p class="section-paragraph">Here is a list of several interesting use cases for rrweb.</p>
-					</div>
-				</div>
-				<div class="features-wrap">
-					<div class="feature text-center is-revealing">
-						<div class="feature-inner">
-							<div class="feature-icon" style="background:#FFD2DA;">
-								<svg viewBox="0 0 1024 1024" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
-									<g fill="none" fill-rule="nonzero">
-										<path fill="#FF6381" d="M364.9 419.6c-3.8-3.7-5.9-8.7-5.9-14 0-5.3 2.1-10.3 5.9-14l115.2-113.7c-57.3-48.3-139.6-53.3-202.3-12.1-62.7 41.1-91 118.5-69.5 190.4 21.5 71.8 87.6 121.1 162.6 121.1 40.4-0.1 79.5-14.6 110.3-40.9L365.4 420.6l-0.5-1z m0 0"></path>
-										<path fill="#FF6381" d="M411.8 407.1l99.8 99.8c44.3-58.6 44.3-139.5 0-198l-99.8 98.2z m0 0"></path>
-										<path fill="#FF6381" d="M826.9 112.8H196.3c-22.1-0.1-43.3 8.5-59.1 24-15.7 15.5-24.6 36.7-24.8 58.8v443c0.1 22.1 9 43.2 24.8 58.8 15.7 15.5 37 24.2 59.1 24h630.6c22.1 0.1 43.3-8.5 59.1-24 15.7-15.5 24.6-36.7 24.8-58.8v-443c-0.1-22.1-9-43.2-24.8-58.8-15.8-15.5-37-24.2-59.1-24z m-456 503.8c-116.6 0.6-211.7-93.4-212.5-210 2.2-85.6 55.4-161.7 135.1-193.1 79.7-31.4 170.5-12.2 230.5 48.9 38.4 38.9 60 91.5 59.9 146.2-1.9 116-96.9 208.9-213 208z m464.9-73.3c-0.3 10.8-9.1 19.5-20 19.5h-174c-10.8 0-19.7-8.6-20-19.5 0.3-10.8 9.1-19.5 20-19.5h174.1c10.8 0 19.7 8.7 19.9 19.5z m0-127.7c-0.3 10.8-9.1 19.5-20 19.5h-174c-10.8 0-19.7-8.6-20-19.5v-3.5c0.3-10.8 9.1-19.5 20-19.5h174.1c10.8 0 19.7 8.6 20 19.5v3.5z m0-127.7c-0.3 10.8-9.1 19.5-20 19.5h-174c-10.8 0-19.7-8.6-20-19.5 0.3-10.8 9.1-19.5 20-19.5h174.1c10.8 0 19.7 8.7 19.9 19.5z m0 0"></path>
-										<path fill="#FF6381" d="M347.5 721.4h-79.8L238.2 886c0.2 13.3 10.7 24.2 23.9 24.9 11.2 0.8 21.3-6.6 23.9-17.5l61.5-172z m330.7 0H758L787.5 886c-0.1 6.8-3 13.3-8 18-5 4.7-11.6 7.2-18.5 6.9-11.2 0.8-21.3-6.6-23.9-17.5l-58.9-172z m0 0"></path>
-									</g>
-								</svg>
-							</div>
-							<h4 class="feature-title h3-mobile mb-8">User analysis</h4>
-							<p class="text-sm">
-								With the pixel-perfect replay of what users do on your site, you will find it easy to understand your users
-								and optimize their experience.
-							</p>
-						</div>
-					</div>
-					<div class="feature text-center is-revealing">
-						<div class="feature-inner">
-							<div class="feature-icon" style="background:#FFD8CD;">
-								<svg viewBox="0 0 1024 1024" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
-									<g fill="none" fill-rule="nonzero">
-										<path fill="#FC8464" d="M916.422378 713.465454l-200.653973-200.639646c12.921287-36.074613 19.461237-73.782424 19.461237-112.426559 0-184.603415-150.179394-334.799182-334.799182-334.799182-45.959751 0-90.675162 9.263991-132.8671 27.525913l-19.960611 8.640798c-0.031722 0.031722 0.124843 0.047072 0.062422 0.077771-1.898233 0.826831-3.674693 2.025123-5.231141 3.581572-6.602372 6.615675-6.602372 17.374716 0.032746 24.007787 0.093121 0.094144-0.094144 0.140193-0.032746 0.233314l187.452299 187.453323L317.133336 429.856142 133.447826 246.156306c-0.280386 0.031722-0.560772 0.047072-0.934279-0.326435-7.78429-7.78429-20.395516-7.78429-28.181853 0-2.116197 2.133593-3.674693 4.609994-4.63967 7.256264-0.093121 0.248663-0.217964 0.124843-0.341784 0.140193l-6.197142 14.323217c-18.24555 42.145889-27.52489 86.860277-27.52489 132.851751 0 184.588065 150.180418 334.799182 334.799182 334.799182 38.611389 0 76.3192-6.538927 112.438838-19.461237l200.654996 200.626343c27.092032 27.088962 63.119573 42.035372 101.450577 42.035372 0 0 0 0 0.032746 0 38.299281 0 74.358545-14.94641 101.449553-42.035372C972.347085 860.439854 972.347085 769.422907 916.422378 713.465454zM871.365182 871.275643c-15.07023 15.071254-35.093263 23.352871-56.360635 23.352871l-0.032746 0c-21.298072 0-41.320081-8.28264-56.359612-23.352871l-230.764757-230.735082-19.896142 8.594749c-34.158984 14.789844-70.342068 22.292726-107.521852 22.292726-149.432381 0-271.027763-121.562637-271.027763-271.02674 0-20.769023 2.335185-41.212634 6.974855-61.141522l168.582533 168.614256c7.068999 5.637394 16.782222 5.714142 23.976064 0.35918l177.239703-177.23868c0.062422-0.062422-0.063445-0.141216 0-0.202615 7.223518-7.224542 7.441483-18.497283 1.24434-26.328645L339.272565 136.330992c19.960611-4.623297 40.386826-6.958482 61.155848-6.958482 149.432381 0 271.028786 121.581056 271.028786 271.027763 0 37.226856-7.505951 73.392544-22.294772 107.491153l-8.594749 19.895119 230.765781 230.765781C902.410246 789.631158 902.410246 840.197834 871.365182 871.275643z"></path>
-									</g>
-								</svg>
-							</div>
-							<h4 class="feature-title h3-mobile mb-8">Reproduce bugs</h4>
-							<p class="text-sm">
-								You can replay problem and debug it in your browser remotely with consistent behavior. This lets you understand
-								the cause of every bug.
-							</p>
-						</div>
-					</div>
-					<div class="feature text-center is-revealing">
-						<div class="feature-inner">
-							<div class="feature-icon" style="background:#C6FDF3;">
-								<svg viewBox="0 0 1024 1024" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
-									<g fill="none" fill-rule="nonzero">
-										<path fill="#1ADAB7" d="M739.738 478.729 593.621 333.188c0 0-31.868-30.281-67.864 0.164-24.386 24.387-65.37 65.371-86.293 86.295l-21.19-20.356c-16.101-15.29-42.207-15.29-58.309 0l-76.484 73.475 0.114 0.162c-5.871 3.601-9.8 10.058-9.8 17.451 0 11.311 9.17 20.48 20.48 20.48 4.861 0 9.319-1.701 12.831-4.53l0.388 0.552c0.399-0.642 0.769-1.298 1.171-1.937 0.853-0.843 1.623-1.767 2.318-2.748l63.558-61.377c8.051-7.645 21.103-7.645 29.153 0l63.838 61.647c0.622 0.903 1.32 1.747 2.075 2.538 0.387 0.621 0.747 1.255 1.134 1.877l0.408-0.415c3.574 3.042 8.198 4.888 13.259 4.888 11.31 0 20.48-9.169 20.48-20.48 0-6.932-3.453-13.048-8.724-16.754l-27.389-26.311 71.089-70.671c0 0 17.644-16.884 38.301-1.338 20.027 20.28 129.706 131.081 129.706 131.081l0.755-0.667c3.611 3.189 8.341 5.14 13.537 5.14 11.311 0 20.48-9.169 20.48-20.48 0-4.288-1.323-8.265-3.576-11.555L739.738 478.729z"></path>
-										<path fill="#1ADAB7" d="M389.12 322.56m-30.72 0a30.72 30.72 0 1 0 61.44 0 30.72 30.72 0 1 0-61.44 0Z"></path>
-										<path fill="#1ADAB7" d="M829.44 229.469c0-27.763-22.471-50.269-50.19-50.269L244.75 179.2c-27.72 0-50.19 22.507-50.19 50.269L194.56 588.8l634.88 0L829.44 229.469zM788.48 547.84 235.52 547.84 235.52 245.459c0-13.973 11.273-25.299 25.18-25.299l502.6 0c13.907 0 25.18 11.327 25.18 25.299L788.48 547.84z"></path>
-										<path fill="#1ADAB7" d="M834.56 619.52 189.44 619.52c-8.483 0-15.36 6.877-15.36 15.36l0 10.24c0 8.483 6.877 15.36 15.36 15.36l291.84 0 0 168.96c0 8.483 6.877 15.36 15.36 15.36l30.72 0c8.483 0 15.36-6.877 15.36-15.36L542.72 660.48l291.84 0c8.483 0 15.36-6.877 15.36-15.36l0-10.24C849.92 626.397 843.043 619.52 834.56 619.52z"></path>
-									</g>
-								</svg>
-							</div>
-							<h4 class="feature-title h3-mobile mb-8">Demonstrate web</h4>
-							<p class="text-sm">
-								Instead of recording videos to show your web, rrweb provides a more lightweight and pixel-perfect way of doing that.
-							</p>
-						</div>
-					</div>
-					<div class="feature text-center is-revealing">
-						<div class="feature-inner">
-							<div class="feature-icon" style="background:#E0E1FE;">
-								<svg viewBox="0 0 1024 1024" width="88" height="88" xmlns="http://www.w3.org/2000/svg">
-									<g fill="none" fill-rule="nonzero">
-										<path fill="#8D92FA" d="M710.4 710.4c-6.4 0-12.8 0-19.2-6.4L524.8 595.2c-19.2-12.8-19.2-32-12.8-44.8 12.8-12.8 32-19.2 44.8-6.4l166.4 115.2c12.8 12.8 19.2 32 6.4 44.8 0 6.4-6.4 6.4-19.2 6.4z"></path>
-										<path fill="#8D92FA" d="M537.6 601.6c-19.2 0-32-12.8-32-32v-224c0-19.2 12.8-32 32-32s32 12.8 32 32v224c0 19.2-12.8 32-32 32z"></path>
-										<path fill="#8D92FA" d="M550.4 966.4c-115.2 0-224-44.8-300.8-128-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0 70.4 70.4 160 108.8 256 108.8 198.4 0 364.8-160 364.8-364.8s-160-364.8-364.8-364.8c-160 0-307.2 108.8-352 262.4 0 19.2-19.2 32-32 25.6-19.2-6.4-25.6-25.6-25.6-38.4 51.2-179.2 224-307.2 409.6-307.2 236.8 0 428.8 192 428.8 428.8 0 230.4-192 422.4-428.8 422.4z"></path>
-										<path fill="#8D92FA" d="M160 492.8c-19.2 0-32-6.4-32-25.6l-25.6-166.4c0-19.2 6.4-32 25.6-38.4 19.2 0 32 6.4 38.4 25.6L192 460.8c0 12.8-12.8 32-32 32z"></path>
-										<path fill="#8D92FA" d="M160 492.8c-12.8 0-25.6-6.4-32-12.8-6.4-19.2 0-38.4 19.2-44.8l160-83.2c12.8-6.4 32 0 44.8 12.8 6.4 12.8 0 32-12.8 44.8l-166.4 83.2H160z"></path>
-									</g>
-								</svg>
-							</div>
-							<h4 class="feature-title h3-mobile mb-8">Real-time collaboration</h4>
-							<p class="text-sm">
-								With the power of rrweb, it should not be hard to share your interactions on the site with others in real-time.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class="features section">
+    <div class="container">
+      <div class="features-inner section-inner">
+        <div class="features-header text-center">
+          <div class="container-sm">
+            <h2 class="section-title mt-0">Meet rrweb</h2>
+            <p class="section-paragraph">
+              Here is a list of several interesting use cases for rrweb.
+            </p>
+          </div>
+        </div>
+        <div class="features-wrap">
+          <div class="feature text-center is-revealing">
+            <div class="feature-inner">
+              <div class="feature-icon" style="background: #ffd2da">
+                <svg
+                  viewBox="0 0 1024 1024"
+                  width="88"
+                  height="88"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g fill="none" fill-rule="nonzero">
+                    <path
+                      fill="#FF6381"
+                      d="M364.9 419.6c-3.8-3.7-5.9-8.7-5.9-14 0-5.3 2.1-10.3 5.9-14l115.2-113.7c-57.3-48.3-139.6-53.3-202.3-12.1-62.7 41.1-91 118.5-69.5 190.4 21.5 71.8 87.6 121.1 162.6 121.1 40.4-0.1 79.5-14.6 110.3-40.9L365.4 420.6l-0.5-1z m0 0"
+                    ></path>
+                    <path
+                      fill="#FF6381"
+                      d="M411.8 407.1l99.8 99.8c44.3-58.6 44.3-139.5 0-198l-99.8 98.2z m0 0"
+                    ></path>
+                    <path
+                      fill="#FF6381"
+                      d="M826.9 112.8H196.3c-22.1-0.1-43.3 8.5-59.1 24-15.7 15.5-24.6 36.7-24.8 58.8v443c0.1 22.1 9 43.2 24.8 58.8 15.7 15.5 37 24.2 59.1 24h630.6c22.1 0.1 43.3-8.5 59.1-24 15.7-15.5 24.6-36.7 24.8-58.8v-443c-0.1-22.1-9-43.2-24.8-58.8-15.8-15.5-37-24.2-59.1-24z m-456 503.8c-116.6 0.6-211.7-93.4-212.5-210 2.2-85.6 55.4-161.7 135.1-193.1 79.7-31.4 170.5-12.2 230.5 48.9 38.4 38.9 60 91.5 59.9 146.2-1.9 116-96.9 208.9-213 208z m464.9-73.3c-0.3 10.8-9.1 19.5-20 19.5h-174c-10.8 0-19.7-8.6-20-19.5 0.3-10.8 9.1-19.5 20-19.5h174.1c10.8 0 19.7 8.7 19.9 19.5z m0-127.7c-0.3 10.8-9.1 19.5-20 19.5h-174c-10.8 0-19.7-8.6-20-19.5v-3.5c0.3-10.8 9.1-19.5 20-19.5h174.1c10.8 0 19.7 8.6 20 19.5v3.5z m0-127.7c-0.3 10.8-9.1 19.5-20 19.5h-174c-10.8 0-19.7-8.6-20-19.5 0.3-10.8 9.1-19.5 20-19.5h174.1c10.8 0 19.7 8.7 19.9 19.5z m0 0"
+                    ></path>
+                    <path
+                      fill="#FF6381"
+                      d="M347.5 721.4h-79.8L238.2 886c0.2 13.3 10.7 24.2 23.9 24.9 11.2 0.8 21.3-6.6 23.9-17.5l61.5-172z m330.7 0H758L787.5 886c-0.1 6.8-3 13.3-8 18-5 4.7-11.6 7.2-18.5 6.9-11.2 0.8-21.3-6.6-23.9-17.5l-58.9-172z m0 0"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <h4 class="feature-title h3-mobile mb-8">User analysis</h4>
+              <p class="text-sm">
+                With the pixel-perfect replay of what users do on your site, you
+                will find it easy to understand your users and optimize their
+                experience.
+              </p>
+            </div>
+          </div>
+          <div class="feature text-center is-revealing">
+            <div class="feature-inner">
+              <div class="feature-icon" style="background: #ffd8cd">
+                <svg
+                  viewBox="0 0 1024 1024"
+                  width="88"
+                  height="88"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g fill="none" fill-rule="nonzero">
+                    <path
+                      fill="#FC8464"
+                      d="M916.422378 713.465454l-200.653973-200.639646c12.921287-36.074613 19.461237-73.782424 19.461237-112.426559 0-184.603415-150.179394-334.799182-334.799182-334.799182-45.959751 0-90.675162 9.263991-132.8671 27.525913l-19.960611 8.640798c-0.031722 0.031722 0.124843 0.047072 0.062422 0.077771-1.898233 0.826831-3.674693 2.025123-5.231141 3.581572-6.602372 6.615675-6.602372 17.374716 0.032746 24.007787 0.093121 0.094144-0.094144 0.140193-0.032746 0.233314l187.452299 187.453323L317.133336 429.856142 133.447826 246.156306c-0.280386 0.031722-0.560772 0.047072-0.934279-0.326435-7.78429-7.78429-20.395516-7.78429-28.181853 0-2.116197 2.133593-3.674693 4.609994-4.63967 7.256264-0.093121 0.248663-0.217964 0.124843-0.341784 0.140193l-6.197142 14.323217c-18.24555 42.145889-27.52489 86.860277-27.52489 132.851751 0 184.588065 150.180418 334.799182 334.799182 334.799182 38.611389 0 76.3192-6.538927 112.438838-19.461237l200.654996 200.626343c27.092032 27.088962 63.119573 42.035372 101.450577 42.035372 0 0 0 0 0.032746 0 38.299281 0 74.358545-14.94641 101.449553-42.035372C972.347085 860.439854 972.347085 769.422907 916.422378 713.465454zM871.365182 871.275643c-15.07023 15.071254-35.093263 23.352871-56.360635 23.352871l-0.032746 0c-21.298072 0-41.320081-8.28264-56.359612-23.352871l-230.764757-230.735082-19.896142 8.594749c-34.158984 14.789844-70.342068 22.292726-107.521852 22.292726-149.432381 0-271.027763-121.562637-271.027763-271.02674 0-20.769023 2.335185-41.212634 6.974855-61.141522l168.582533 168.614256c7.068999 5.637394 16.782222 5.714142 23.976064 0.35918l177.239703-177.23868c0.062422-0.062422-0.063445-0.141216 0-0.202615 7.223518-7.224542 7.441483-18.497283 1.24434-26.328645L339.272565 136.330992c19.960611-4.623297 40.386826-6.958482 61.155848-6.958482 149.432381 0 271.028786 121.581056 271.028786 271.027763 0 37.226856-7.505951 73.392544-22.294772 107.491153l-8.594749 19.895119 230.765781 230.765781C902.410246 789.631158 902.410246 840.197834 871.365182 871.275643z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <h4 class="feature-title h3-mobile mb-8">Reproduce bugs</h4>
+              <p class="text-sm">
+                You can replay problem and debug it in your browser remotely
+                with consistent behavior. This lets you understand the cause of
+                every bug.
+              </p>
+            </div>
+          </div>
+          <div class="feature text-center is-revealing">
+            <div class="feature-inner">
+              <div class="feature-icon" style="background: #c6fdf3">
+                <svg
+                  viewBox="0 0 1024 1024"
+                  width="88"
+                  height="88"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g fill="none" fill-rule="nonzero">
+                    <path
+                      fill="#1ADAB7"
+                      d="M739.738 478.729 593.621 333.188c0 0-31.868-30.281-67.864 0.164-24.386 24.387-65.37 65.371-86.293 86.295l-21.19-20.356c-16.101-15.29-42.207-15.29-58.309 0l-76.484 73.475 0.114 0.162c-5.871 3.601-9.8 10.058-9.8 17.451 0 11.311 9.17 20.48 20.48 20.48 4.861 0 9.319-1.701 12.831-4.53l0.388 0.552c0.399-0.642 0.769-1.298 1.171-1.937 0.853-0.843 1.623-1.767 2.318-2.748l63.558-61.377c8.051-7.645 21.103-7.645 29.153 0l63.838 61.647c0.622 0.903 1.32 1.747 2.075 2.538 0.387 0.621 0.747 1.255 1.134 1.877l0.408-0.415c3.574 3.042 8.198 4.888 13.259 4.888 11.31 0 20.48-9.169 20.48-20.48 0-6.932-3.453-13.048-8.724-16.754l-27.389-26.311 71.089-70.671c0 0 17.644-16.884 38.301-1.338 20.027 20.28 129.706 131.081 129.706 131.081l0.755-0.667c3.611 3.189 8.341 5.14 13.537 5.14 11.311 0 20.48-9.169 20.48-20.48 0-4.288-1.323-8.265-3.576-11.555L739.738 478.729z"
+                    ></path>
+                    <path
+                      fill="#1ADAB7"
+                      d="M389.12 322.56m-30.72 0a30.72 30.72 0 1 0 61.44 0 30.72 30.72 0 1 0-61.44 0Z"
+                    ></path>
+                    <path
+                      fill="#1ADAB7"
+                      d="M829.44 229.469c0-27.763-22.471-50.269-50.19-50.269L244.75 179.2c-27.72 0-50.19 22.507-50.19 50.269L194.56 588.8l634.88 0L829.44 229.469zM788.48 547.84 235.52 547.84 235.52 245.459c0-13.973 11.273-25.299 25.18-25.299l502.6 0c13.907 0 25.18 11.327 25.18 25.299L788.48 547.84z"
+                    ></path>
+                    <path
+                      fill="#1ADAB7"
+                      d="M834.56 619.52 189.44 619.52c-8.483 0-15.36 6.877-15.36 15.36l0 10.24c0 8.483 6.877 15.36 15.36 15.36l291.84 0 0 168.96c0 8.483 6.877 15.36 15.36 15.36l30.72 0c8.483 0 15.36-6.877 15.36-15.36L542.72 660.48l291.84 0c8.483 0 15.36-6.877 15.36-15.36l0-10.24C849.92 626.397 843.043 619.52 834.56 619.52z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <h4 class="feature-title h3-mobile mb-8">Demonstrate web</h4>
+              <p class="text-sm">
+                Instead of recording videos to show your web, rrweb provides a
+                more lightweight and pixel-perfect way of doing that.
+              </p>
+            </div>
+          </div>
+          <div class="feature text-center is-revealing">
+            <div class="feature-inner">
+              <div class="feature-icon" style="background: #e0e1fe">
+                <svg
+                  viewBox="0 0 1024 1024"
+                  width="88"
+                  height="88"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g fill="none" fill-rule="nonzero">
+                    <path
+                      fill="#8D92FA"
+                      d="M710.4 710.4c-6.4 0-12.8 0-19.2-6.4L524.8 595.2c-19.2-12.8-19.2-32-12.8-44.8 12.8-12.8 32-19.2 44.8-6.4l166.4 115.2c12.8 12.8 19.2 32 6.4 44.8 0 6.4-6.4 6.4-19.2 6.4z"
+                    ></path>
+                    <path
+                      fill="#8D92FA"
+                      d="M537.6 601.6c-19.2 0-32-12.8-32-32v-224c0-19.2 12.8-32 32-32s32 12.8 32 32v224c0 19.2-12.8 32-32 32z"
+                    ></path>
+                    <path
+                      fill="#8D92FA"
+                      d="M550.4 966.4c-115.2 0-224-44.8-300.8-128-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0 70.4 70.4 160 108.8 256 108.8 198.4 0 364.8-160 364.8-364.8s-160-364.8-364.8-364.8c-160 0-307.2 108.8-352 262.4 0 19.2-19.2 32-32 25.6-19.2-6.4-25.6-25.6-25.6-38.4 51.2-179.2 224-307.2 409.6-307.2 236.8 0 428.8 192 428.8 428.8 0 230.4-192 422.4-428.8 422.4z"
+                    ></path>
+                    <path
+                      fill="#8D92FA"
+                      d="M160 492.8c-19.2 0-32-6.4-32-25.6l-25.6-166.4c0-19.2 6.4-32 25.6-38.4 19.2 0 32 6.4 38.4 25.6L192 460.8c0 12.8-12.8 32-32 32z"
+                    ></path>
+                    <path
+                      fill="#8D92FA"
+                      d="M160 492.8c-12.8 0-25.6-6.4-32-12.8-6.4-19.2 0-38.4 19.2-44.8l160-83.2c12.8-6.4 32 0 44.8 12.8 6.4 12.8 0 32-12.8 44.8l-166.4 83.2H160z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <h4 class="feature-title h3-mobile mb-8">
+                Real-time collaboration
+              </h4>
+              <p class="text-sm">
+                With the power of rrweb, it should not be hard to share your
+                interactions on the site with others in real-time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<section class="companys section">
-		<div class="container">
-			<div class="section-inner">
-				<div class="text-center">
-					<div class="container-sm">
-						<h2 class="section-title mt-0">Who's using rrweb</h2>
-						<p class="section-paragraph">Trusted by these great companies:</p>
-						<div class="logo-wrapper">
-							<div class="logo">
-								<img src="logos/smartx.png" alt="smartx">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class="companys section">
+    <div class="container">
+      <div class="section-inner">
+        <div class="text-center">
+          <div class="container-sm">
+            <h2 class="section-title mt-0">Who's using rrweb</h2>
+            <p class="section-paragraph">Trusted by these great companies:</p>
+            <div class="logo-wrapper">
+              <div class="logo">
+                <img src="logos/smartx.png" alt="smartx" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-	<section id="demos" class="demos section">
-		<div class="demos-shape demos-shape-1">
-			<svg width="280" height="280" viewBox="0 0 280 280" xmlns="http://www.w3.org/2000/svg">
-				<defs>
-					<linearGradient x1="100%" y1="0%" x2="0%" y2="100%" id="demos-shape-1">
-						<stop stop-color="#261FB6" offset="0%" />
-						<stop stop-color="#4950F6" offset="100%" />
-					</linearGradient>
-				</defs>
-				<circle cx="140" cy="685" r="140" transform="translate(0 -545)" fill="url(#demos-shape-1)" fill-rule="evenodd" />
-			</svg>
-		</div>
-		<div class="demos-shape demos-shape-2">
-			<svg width="125" height="107" viewBox="0 0 125 107" xmlns="http://www.w3.org/2000/svg">
-				<g fill="none" fill-rule="evenodd">
-					<circle fill="#C6FDF3" cx="48" cy="59" r="48" />
-					<path d="M58.536 39.713c0-6.884 1.72-14.007 5.163-21.368 3.443-7.36 8.167-13.458 14.173-18.292l11.645 7.91c-3.589 4.98-6.262 10.016-8.02 15.106S78.86 33.598 78.86 39.384v13.623H58.536V39.713z"
-					 fill="#55EBD0" />
-					<path d="M93.252 39.713c0-6.884 1.722-14.007 5.164-21.368 3.442-7.36 8.166-13.458 14.172-18.292l11.646 7.91c-3.589 4.98-6.262 10.016-8.02 15.106s-2.637 10.529-2.637 16.315v13.623H93.252V39.713z"
-					 fill="#1ADAB7" />
-				</g>
-			</svg>
-		</div>
-		<div class="demos-shape demos-shape-3">
-			<svg width="48" height="48" viewBox="0 0 48 48" mlns="http://www.w3.org/2000/svg">
-				<defs>
-					<linearGradient x1="93.05%" y1="19.767%" x2="15.034%" y2="85.765%" id="demos-shape-3">
-						<stop stop-color="#FF3058" offset="0%" />
-						<stop stop-color="#FF6381" offset="100%" />
-					</linearGradient>
-				</defs>
-				<circle cx="24" cy="434" r="24" transform="translate(0 -410)" fill="url(#demos-shape-3)" fill-rule="evenodd" />
-			</svg>
-		</div>
-		<div class="container">
-			<div class="demos-inner section-inner">
-				<div class="demos-header text-center">
-					<h2 class="section-title mt-0">Try rrweb</h2>
-					<p class="section-paragraph">Interact with the following demos, click the 'replay' button whenever you want to stop
-						recording.</p>
-				</div>
-				<div class="demos-wrap">
-					<div class="demo text-xs is-revealing">
-						<a class="demo-inner" rel='prefetch' href="demo/checkout-form">
-							<div class="demo-main">
-								<div class="demo-body">
-									<img class="mb-16" src="checkout.png" alt="checkout">
-									<p class="mb-0">Bootstrap checkout form</p>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="demo text-xs is-revealing">
-						<a class="demo-inner" rel="prefetch" href="demo/chat">
-							<div class="demo-main">
-								<div class="demo-body">
-									<img class="mb-16" src="chat.png" alt="chat">
-									<p class="mb-0">Conversational Form</p>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="demo text-xs is-revealing">
-						<a class="demo-inner" rel="prefetch" href="demo/tetris?lan=en">
-							<div class="demo-main">
-								<div class="demo-body">
-									<img class="mb-16" src="tetris.png" alt="tetris">
-									<p class="mb-0">Tetris game</p>
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <section id="demos" class="demos section">
+    <div class="demos-shape demos-shape-1">
+      <svg
+        width="280"
+        height="280"
+        viewBox="0 0 280 280"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            x1="100%"
+            y1="0%"
+            x2="0%"
+            y2="100%"
+            id="demos-shape-1"
+          >
+            <stop stop-color="#261FB6" offset="0%" />
+            <stop stop-color="#4950F6" offset="100%" />
+          </linearGradient>
+        </defs>
+        <circle
+          cx="140"
+          cy="685"
+          r="140"
+          transform="translate(0 -545)"
+          fill="url(#demos-shape-1)"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div class="demos-shape demos-shape-2">
+      <svg
+        width="125"
+        height="107"
+        viewBox="0 0 125 107"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g fill="none" fill-rule="evenodd">
+          <circle fill="#C6FDF3" cx="48" cy="59" r="48" />
+          <path
+            d="M58.536 39.713c0-6.884 1.72-14.007 5.163-21.368 3.443-7.36 8.167-13.458 14.173-18.292l11.645 7.91c-3.589 4.98-6.262 10.016-8.02 15.106S78.86 33.598 78.86 39.384v13.623H58.536V39.713z"
+            fill="#55EBD0"
+          />
+          <path
+            d="M93.252 39.713c0-6.884 1.722-14.007 5.164-21.368 3.442-7.36 8.166-13.458 14.172-18.292l11.646 7.91c-3.589 4.98-6.262 10.016-8.02 15.106s-2.637 10.529-2.637 16.315v13.623H93.252V39.713z"
+            fill="#1ADAB7"
+          />
+        </g>
+      </svg>
+    </div>
+    <div class="demos-shape demos-shape-3">
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+        mlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient
+            x1="93.05%"
+            y1="19.767%"
+            x2="15.034%"
+            y2="85.765%"
+            id="demos-shape-3"
+          >
+            <stop stop-color="#FF3058" offset="0%" />
+            <stop stop-color="#FF6381" offset="100%" />
+          </linearGradient>
+        </defs>
+        <circle
+          cx="24"
+          cy="434"
+          r="24"
+          transform="translate(0 -410)"
+          fill="url(#demos-shape-3)"
+          fill-rule="evenodd"
+        />
+      </svg>
+    </div>
+    <div class="container">
+      <div class="demos-inner section-inner">
+        <div class="demos-header text-center">
+          <h2 class="section-title mt-0">Try rrweb</h2>
+          <p class="section-paragraph">
+            Interact with the following demos, click the 'replay' button
+            whenever you want to stop recording.
+          </p>
+        </div>
+        <div class="demos-wrap">
+          <div class="demo text-xs is-revealing">
+            <a class="demo-inner" rel="prefetch" href="demo/checkout-form">
+              <div class="demo-main">
+                <div class="demo-body">
+                  <img class="mb-16" src="checkout.png" alt="checkout" />
+                  <p class="mb-0">Bootstrap checkout form</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="demo text-xs is-revealing">
+            <a class="demo-inner" rel="prefetch" href="demo/chat">
+              <div class="demo-main">
+                <div class="demo-body">
+                  <img class="mb-16" src="chat.png" alt="chat" />
+                  <p class="mb-0">Conversational Form</p>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="demo text-xs is-revealing">
+            <a class="demo-inner" rel="prefetch" href="demo/tetris?lan=en">
+              <div class="demo-main">
+                <div class="demo-body">
+                  <img class="mb-16" src="tetris.png" alt="tetris" />
+                  <p class="mb-0">Tetris game</p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
 
 <script>
-	import Nav from '../components/Nav'
+  import Nav from "../components/Nav";
 
-	function isMobile() {
-		let check = false;
-		(function (a) { if (/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a) || /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0, 4))) check = true; })(navigator.userAgent || navigator.vendor || window.opera);
-		return check;
-	}
+  function isMobile() {
+    let check = false;
+    (function (a) {
+      if (
+        /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(
+          a
+        ) ||
+        /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(
+          a.substr(0, 4)
+        )
+      )
+        check = true;
+    })(navigator.userAgent || navigator.vendor || window.opera);
+    return check;
+  }
 
-	export default {
-		components: {
-			Nav
-		},
-		methods: {
-			initAnimation() {
+  export default {
+    components: {
+      Nav,
+    },
+    methods: {
+      initAnimation() {
+        const doc = document.documentElement;
 
-				const doc = document.documentElement
+        doc.classList.remove("no-js");
+        doc.classList.add("js");
 
-				doc.classList.remove('no-js')
-				doc.classList.add('js')
+        // Reveal animations
+        if (document.body.classList.contains("has-animations")) {
+          /* global ScrollReveal */
+          const sr = (window.sr = ScrollReveal());
 
-				// Reveal animations
-				if (document.body.classList.contains('has-animations')) {
-					/* global ScrollReveal */
-					const sr = window.sr = ScrollReveal()
+          sr.reveal(".feature, .demo", {
+            duration: 600,
+            distance: "50px",
+            easing: "cubic-bezier(0.5, -0.01, 0, 1.005)",
+            origin: "bottom",
+            interval: 100,
+          });
 
-					sr.reveal('.feature, .demo', {
-						duration: 600,
-						distance: '50px',
-						easing: 'cubic-bezier(0.5, -0.01, 0, 1.005)',
-						origin: 'bottom',
-						interval: 100
-					})
+          /* global anime */
+          const heroAnimation = anime.timeline({ autoplay: false });
 
-					/* global anime */
-					const heroAnimation = anime.timeline({ autoplay: false })
+          heroAnimation
+            .add({
+              targets: ".stroke-animation",
+              strokeDashoffset: {
+                value: 0,
+                duration: 2000,
+                easing: "easeInOutQuart",
+              },
+              strokeWidth: {
+                value: [0, 2],
+                duration: 2000,
+                easing: "easeOutCubic",
+              },
+              strokeOpacity: {
+                value: [1, 0],
+                duration: 1000,
+                easing: "easeOutCubic",
+                delay: 1000,
+              },
+              fillOpacity: {
+                value: [0, 1],
+                duration: 500,
+                easing: "easeOutCubic",
+                delay: 1300,
+              },
+            })
+            .add({
+              targets: ".fadeup-animation",
+              offset: 1300, // Starts at 1300ms of the timeline
+              translateY: {
+                value: [100, 0],
+                duration: 1500,
+                easing: "easeOutElastic",
+                delay: function (el, i) {
+                  return i * 150;
+                },
+              },
+              opacity: {
+                value: [0, 1],
+                duration: 200,
+                easing: "linear",
+                delay: function (el, i) {
+                  return i * 150;
+                },
+              },
+            })
+            .add({
+              targets: ".fadeleft-animation",
+              offset: 1300, // Starts at 1300ms of the timeline
+              translateX: {
+                value: [40, 0],
+                duration: 400,
+                easing: "easeOutCubic",
+                delay: function (el, i) {
+                  return i * 100;
+                },
+              },
+              opacity: {
+                value: [0, 1],
+                duration: 200,
+                easing: "linear",
+                delay: function (el, i) {
+                  return i * 100;
+                },
+              },
+            });
 
-					heroAnimation.add({
-						targets: '.stroke-animation',
-						strokeDashoffset: {
-							value: 0,
-							duration: 2000,
-							easing: 'easeInOutQuart'
-						},
-						strokeWidth: {
-							value: [0, 2],
-							duration: 2000,
-							easing: 'easeOutCubic'
-						},
-						strokeOpacity: {
-							value: [1, 0],
-							duration: 1000,
-							easing: 'easeOutCubic',
-							delay: 1000
-						},
-						fillOpacity: {
-							value: [0, 1],
-							duration: 500,
-							easing: 'easeOutCubic',
-							delay: 1300
-						}
-					}).add({
-						targets: '.fadeup-animation',
-						offset: 1300, // Starts at 1300ms of the timeline
-						translateY: {
-							value: [100, 0],
-							duration: 1500,
-							easing: 'easeOutElastic',
-							delay: function (el, i) {
-								return i * 150
-							}
-						},
-						opacity: {
-							value: [0, 1],
-							duration: 200,
-							easing: 'linear',
-							delay: function (el, i) {
-								return i * 150
-							}
-						}
-					}).add({
-						targets: '.fadeleft-animation',
-						offset: 1300, // Starts at 1300ms of the timeline
-						translateX: {
-							value: [40, 0],
-							duration: 400,
-							easing: 'easeOutCubic',
-							delay: function (el, i) {
-								return i * 100
-							}
-						},
-						opacity: {
-							value: [0, 1],
-							duration: 200,
-							easing: 'linear',
-							delay: function (el, i) {
-								return i * 100
-							}
-						}
-					})
-
-					doc.classList.add('anime-ready')
-					heroAnimation.play()
-				}
-			}
-		},
-		oncreate() {
-			this.initAnimation()
-			if (!isMobile()) {
-				fetch('/events.json')
-					.then(r => r.json())
-					.then(events => {
-						const rrwebPlayer = require('rrweb-player').default
-						const maxWidth = this.refs.hero
-							.getBoundingClientRect().width
-						const viewportWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0)
-						const width = viewportWidth > 641 ? maxWidth / 2 : maxWidth
-						const height = width * 9 / 16
-						new rrwebPlayer({
-							target: this.refs.replayer,
-							data: {
-								events,
-								width,
-								height
-							}
-						})
-					})
-			}
-		}
-	}
+          doc.classList.add("anime-ready");
+          heroAnimation.play();
+        }
+      },
+    },
+    oncreate() {
+      this.initAnimation();
+      if (!isMobile()) {
+        fetch("/events.json")
+          .then((r) => r.json())
+          .then((events) => {
+            const rrwebPlayer = require("rrweb-player").default;
+            const rrweb = require("rrweb");
+            const maxWidth = this.refs.hero.getBoundingClientRect().width;
+            const viewportWidth = Math.max(
+              document.documentElement.clientWidth,
+              window.innerWidth || 0
+            );
+            const width = viewportWidth > 641 ? maxWidth / 2 : maxWidth;
+            const height = (width * 9) / 16;
+            new rrwebPlayer({
+              target: this.refs.replayer,
+              props: {
+                events,
+                width,
+                height,
+                unpackFn: rrweb.unpack,
+              },
+            });
+          });
+      }
+    },
+  };
 </script>
