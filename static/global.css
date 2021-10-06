@@ -1365,7 +1365,7 @@ textarea {
 /*--- # companys ---*/
 .logo-wrapper {
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 .logo {
   width: 25%;
