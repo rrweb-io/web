@@ -337,7 +337,7 @@ h6,
 .h6 {
   clear: both;
   color: #11103e;
-  font-family: Fira Sans, serif;
+  font-family: "Fira Sans", serif;
   font-weight: 600;
 }
 h1,
@@ -1366,12 +1366,22 @@ textarea {
 .logo-wrapper {
   display: flex;
   justify-content: space-evenly;
+  gap: 10px;
 }
 .logo {
   width: 25%;
   height: 60px;
-  display: flex;
   align-items: center;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+  margin: auto;
+}
+/*-------------------------------------------------------------- # sponsors --------------------------------------------------------------*/
+.sponsors img {
+  display: inline-block;
 }
 /*-------------------------------------------------------------- # demos --------------------------------------------------------------*/
 .demos {
