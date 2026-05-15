@@ -1,0 +1,6 @@
+# Netlify domain-level redirects. Keep both protocols explicit in case HTTPS
+# enforcement is changed in the Netlify project settings.
+http://rrweb.io/* https://rrweb.com/:splat 301!
+https://rrweb.io/* https://rrweb.com/:splat 301!
+http://www.rrweb.io/* https://rrweb.com/:splat 301!
+https://www.rrweb.io/* https://rrweb.com/:splat 301!
