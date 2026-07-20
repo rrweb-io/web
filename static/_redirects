@@ -1,3 +1,6 @@
+rrweb.io/google*        /google:splat 200!
+www.rrweb.io/google*    /google:splat 200!
+
 # Netlify domain-level redirects. Keep both protocols explicit in case HTTPS
 # enforcement is changed in the Netlify project settings.
 http://rrweb.io/* https://rrweb.com/:splat 301!
