@@ -1,5 +1,11 @@
-rrweb.io/google*        /google:splat 200!
-www.rrweb.io/google*    /google:splat 200!
+# Serve Google Search Console verification files before the domain redirect.
+# The scheme is required: Netlify only matches a domain in the "from" path when
+# the protocol is present, so a schemeless "www.rrweb.io/google*" never matches
+# and the forced 301 below would otherwise swallow the file.
+http://rrweb.io/google*        /google:splat 200!
+https://rrweb.io/google*       /google:splat 200!
+http://www.rrweb.io/google*    /google:splat 200!
+https://www.rrweb.io/google*   /google:splat 200!
 
 # Netlify domain-level redirects. Keep both protocols explicit in case HTTPS
 # enforcement is changed in the Netlify project settings.
